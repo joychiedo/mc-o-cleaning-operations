@@ -1,13 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import { format } from "date-fns";
-import {
-  Users,
-  MapPin,
-  HardHat,
-  CalendarDays,
-  FileWarning,
-} from "lucide-react";
+import { Users, MapPin, HardHat, CalendarDays, CircleAlert, FileWarning } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
