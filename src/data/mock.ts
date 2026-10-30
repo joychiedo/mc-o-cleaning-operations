@@ -124,8 +124,6 @@ export const locations: Location[] = [
   { id: "loc-10", name: "Brightpath Children's Centre", customerId: "cus-07", address: "61 Sandfield Road, Ikoyi", area: "Ikoyi", frequency: "Weekly", areaSqm: 700, defaultTeam: "B", accessNotes: "Non-toxic products only." },
   { id: "loc-11", name: "Sterling Heights Tower A", customerId: "cus-08", address: "5 Queensway Drive, Ikoyi", area: "Ikoyi", frequency: "3× weekly", areaSqm: 2600, defaultTeam: "A", accessNotes: "Service lift; porter's log." },
   { id: "loc-12", name: "Sterling Heights Tower B", customerId: "cus-08", address: "5 Queensway Drive, Ikoyi", area: "Ikoyi", frequency: "3× weekly", areaSqm: 2600, defaultTeam: "A", accessNotes: "Service lift; porter's log." },
-  { id: "loc-13", name: "Coastal Brew Roastery", customerId: "cus-09", address: "40 Kiln Street, Yaba", area: "Yaba", frequency: "Weekly", areaSqm: 640, defaultTeam: "C", accessNotes: "Site closed for renovation." },
-  { id: "loc-14", name: "Meridian Insurance HQ", customerId: "cus-10", address: "2 Civic Parade, Central", area: "Victoria Island", frequency: "Daily", areaSqm: 6800, defaultTeam: "B", accessNotes: "Boardroom detail Tue & Thu." },
   { id: "loc-15", name: "Unity Mall Atrium", customerId: "cus-11", address: "77 Market Ring, Ikeja", area: "Ikeja", frequency: "Daily", areaSqm: 7400, defaultTeam: "C", accessNotes: "Before opening, 06:00–08:00." },
   { id: "loc-16", name: "Palmgrove Hotel Public Areas", customerId: "cus-12", address: "12 Palmtree Avenue, Lekki Phase 1", area: "Lekki", frequency: "Daily", areaSqm: 3400, defaultTeam: "A", accessNotes: "Night pass from duty manager." },
 ];
