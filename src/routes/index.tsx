@@ -279,6 +279,3 @@ function AttentionRow({
     </div>
   );
 }
-
-// Re-exported to keep tree-shaking honest about unused arrow/delta icons.
-export const _unusedIcons = { ArrowUpRight, ArrowDownRight };

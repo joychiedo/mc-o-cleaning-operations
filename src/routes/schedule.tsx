@@ -33,7 +33,7 @@ function SchedulePage() {
   const week = currentWeekDays();
   const todayIso = format(new Date(), "yyyy-MM-dd");
   const weekShifts = week.flatMap((d) => shiftsForDate(d));
-  const tomorrow = upcomingDays(2)[1];
+  const tomorrow = upcomingDays(2)[1] ?? new Date();
 
   return (
     <>

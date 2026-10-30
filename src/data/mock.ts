@@ -214,7 +214,7 @@ function employeeSliceFor(dayIndex: number, team: "A" | "B" | "C", slot: number)
   const roster = teamRoster[team];
   const size = team === "B" ? 3 : 2;
   const offset = (dayIndex * 3 + slot) % roster.length;
-  return Array.from({ length: size }, (_, i) => roster[(offset + i) % roster.length]);
+  return Array.from({ length: size }, (_, i) => roster[(offset + i) % roster.length] ?? roster[0]!);
 }
 
 /** Deterministic per-date schedule derived from the weekday plan. */
@@ -282,7 +282,7 @@ export function attendanceForDate(date: Date): AttendanceRecord[] {
 }
 
 function addMinutes(hhmm: string, mins: number): string {
-  const [h, m] = hhmm.split(":").map(Number);
+  const [h = 0, m = 0] = hhmm.split(":").map(Number);
   const total = (h * 60 + m + mins) % (24 * 60);
   return `${String(Math.floor(total / 60)).padStart(2, "0")}:${String(total % 60).padStart(2, "0")}`;
 }

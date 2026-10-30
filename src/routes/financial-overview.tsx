@@ -49,8 +49,8 @@ function FinancialPage() {
   const overdue = invoices.filter((i) => i.status === "Overdue").reduce((sum, i) => sum + i.amount, 0);
   const collected = invoices.filter((i) => i.status === "Paid").reduce((sum, i) => sum + i.amount, 0);
   const maxRevenue = Math.max(...monthlyRevenue.map((m) => m.revenue));
-  const thisMonth = monthlyRevenue[monthlyRevenue.length - 1];
-  const lastMonth = monthlyRevenue[monthlyRevenue.length - 2];
+  const thisMonth = monthlyRevenue[monthlyRevenue.length - 1]!;
+  const lastMonth = monthlyRevenue[monthlyRevenue.length - 2]!;
   const growth = Math.round(((thisMonth.revenue - lastMonth.revenue) / lastMonth.revenue) * 100);
 
   return (

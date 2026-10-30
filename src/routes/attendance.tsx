@@ -148,7 +148,7 @@ function AttendancePage() {
       ) : (
         <Card>
           <CardHeader>
-            <CardTitle>Week summary — {format(week[0], "d MMM")} to {format(week[6], "d MMM yyyy")}</CardTitle>
+            <CardTitle>Week summary — {format(week[0] ?? today, "d MMM")} to {format(week[6] ?? today, "d MMM yyyy")}</CardTitle>
             <CardDescription>Days present, late arrivals and missed shifts per employee.</CardDescription>
           </CardHeader>
           <CardContent className="p-0">
