@@ -13,13 +13,28 @@ import {
 import { recentActivity } from "@/data/mock";
 
 export const pageTitles: Record<string, { title: string; description: string }> = {
-  "/": { title: "Dashboard", description: "Operational snapshot for today and the rest of the week." },
-  "/customers": { title: "Customers", description: "Contracted clients and their service accounts." },
-  "/locations": { title: "Locations", description: "Cleaning sites, frequencies and access details." },
+  "/dashboard": {
+    title: "Dashboard",
+    description: "Operational snapshot for today and the rest of the week.",
+  },
+  "/customers": {
+    title: "Customers",
+    description: "Contracted clients and their service accounts.",
+  },
+  "/locations": {
+    title: "Locations",
+    description: "Cleaning sites, frequencies and access details.",
+  },
   "/employees": { title: "Employees", description: "Field teams, leads and support roles." },
   "/schedule": { title: "Schedule", description: "Weekly cleaning roster across all locations." },
-  "/attendance": { title: "Attendance", description: "Clock-ins, punctuality and absence records." },
-  "/financial-overview": { title: "Financial Overview", description: "Revenue, invoices and outstanding balances." },
+  "/attendance": {
+    title: "Attendance",
+    description: "Clock-ins, punctuality and absence records.",
+  },
+  "/financial-overview": {
+    title: "Financial Overview",
+    description: "Revenue, invoices and outstanding balances.",
+  },
   "/settings": { title: "Settings", description: "Workspace preferences for this prototype." },
 };
 
@@ -53,14 +68,13 @@ export function AppTopbar({
         aria-label={sidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"}
         onClick={onToggleCollapse}
       >
-        <ChevronsLeft
-          aria-hidden="true"
-          className={sidebarCollapsed ? "rotate-180" : undefined}
-        />
+        <ChevronsLeft aria-hidden="true" className={sidebarCollapsed ? "rotate-180" : undefined} />
       </Button>
 
       <div className="min-w-0 flex-1">
-        <h1 className="truncate text-[15px] font-semibold leading-tight text-foreground">{page.title}</h1>
+        <h1 className="truncate text-[15px] font-semibold leading-tight text-foreground">
+          {page.title}
+        </h1>
         <p className="hidden truncate text-xs text-muted-foreground sm:block">{page.description}</p>
       </div>
 
@@ -90,7 +104,8 @@ export function AppTopbar({
           {recentActivity.slice(0, 4).map((item, i) => (
             <DropdownMenuItem key={i} className="flex-col items-start gap-0.5">
               <span className="text-[13px] font-medium text-foreground">
-                {item.actor} — {item.action.replace(/^Completed |^Submitted the site checklist for /, "")}
+                {item.actor} —{" "}
+                {item.action.replace(/^Completed |^Submitted the site checklist for /, "")}
               </span>
               <span className="text-xs text-muted-foreground">
                 {item.time} · {item.target}

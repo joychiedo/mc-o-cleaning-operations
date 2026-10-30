@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
   type ErrorComponentProps,
@@ -24,7 +25,7 @@ function NotFoundComponent() {
         </p>
         <div className="mt-6">
           <Link
-            to="/"
+            to="/dashboard"
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
             Back to dashboard
@@ -45,7 +46,9 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
   return (
     <div className="flex min-h-[60vh] items-center justify-center px-4">
       <div className="max-w-md text-center">
-        <h2 className="text-xl font-semibold tracking-tight text-foreground">This page didn't load</h2>
+        <h2 className="text-xl font-semibold tracking-tight text-foreground">
+          This page didn't load
+        </h2>
         <p className="mt-2 text-sm text-muted-foreground">
           Something went wrong on our end. You can try refreshing or head back to the dashboard.
         </p>
@@ -60,7 +63,7 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
             Try again
           </button>
           <a
-            href="/"
+            href="/dashboard"
             className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
           >
             Go to dashboard
@@ -77,9 +80,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "MC&O Cleaning Operations" },
-      { name: "description", content: "Operations platform prototype for MC&O Cleaning — schedules, attendance, customers and financial overview." },
+      {
+        name: "description",
+        content:
+          "Operations platform prototype for MC&O Cleaning — schedules, attendance, customers and financial overview.",
+      },
       { property: "og:title", content: "MC&O Cleaning Operations" },
-      { property: "og:description", content: "Operations platform prototype for MC&O Cleaning — schedules, attendance, customers and financial overview." },
+      {
+        property: "og:description",
+        content:
+          "Operations platform prototype for MC&O Cleaning — schedules, attendance, customers and financial overview.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -116,13 +127,20 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  // The public welcome page at "/" renders without the operations shell.
+  const isPublic = pathname === "/";
 
   return (
     <QueryClientProvider client={queryClient}>
-      <AppShell>
-        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+      {isPublic ? (
         <Outlet />
-      </AppShell>
+      ) : (
+        <AppShell>
+          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+          <Outlet />
+        </AppShell>
+      )}
     </QueryClientProvider>
   );
 }

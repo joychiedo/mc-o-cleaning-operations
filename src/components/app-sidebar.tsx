@@ -12,7 +12,7 @@ import {
 import { cn } from "@/lib/utils";
 
 export const navItems = [
-  { title: "Dashboard", url: "/", icon: LayoutDashboard },
+  { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
   { title: "Customers", url: "/customers", icon: Users },
   { title: "Locations", url: "/locations", icon: MapPin },
   { title: "Employees", url: "/employees", icon: HardHat },
@@ -36,7 +36,10 @@ export function AppSidebar({
   return (
     <aside
       aria-label="Main navigation"
-      className={cn("flex h-full w-full flex-col border-r border-sidebar-border bg-sidebar", className)}
+      className={cn(
+        "flex h-full w-full flex-col border-r border-sidebar-border bg-sidebar",
+        className,
+      )}
     >
       <div
         className={cn(
@@ -65,7 +68,7 @@ export function AppSidebar({
       <nav className="flex-1 overflow-y-auto p-2">
         <ul className="flex flex-col gap-0.5">
           {navItems.map((item) => {
-            const active = item.url === "/" ? pathname === "/" : pathname.startsWith(item.url);
+            const active = pathname.startsWith(item.url);
             return (
               <li key={item.url}>
                 <Link
