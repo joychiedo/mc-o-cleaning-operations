@@ -5,9 +5,6 @@ import {
   MapPin,
   HardHat,
   CalendarDays,
-  ArrowUpRight,
-  ArrowDownRight,
-  CircleAlert,
   FileWarning,
 } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";

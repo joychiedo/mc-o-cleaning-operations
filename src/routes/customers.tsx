@@ -15,7 +15,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { PageHeader } from "@/components/page-header";
-import { customers, locations, naira, formatMoney } from "@/data/mock";
+import { customers, locations, naira } from "@/data/mock";
 
 export const Route = createFileRoute("/customers")({
   head: () => ({
@@ -74,7 +74,7 @@ function CustomersPage() {
           />
         </div>
         <p className="text-[13px] text-muted-foreground">
-          Combined contract value: <span className="font-semibold text-foreground">{formatMoney(totalMonthly)}</span> / month
+          Combined contract value: <span className="font-semibold text-foreground">{naira(totalMonthly)}</span> / month
         </p>
       </div>
 
