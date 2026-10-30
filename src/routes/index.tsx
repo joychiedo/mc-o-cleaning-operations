@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { format } from "date-fns";
 import {
   Users,
@@ -109,7 +110,7 @@ function Index() {
               <CardDescription>{todayShifts.length} shifts planned across 3 field teams.</CardDescription>
             </div>
             <Button variant="outline" size="sm" asChild>
-              <a href="/schedule">Open full schedule</a>
+              <Link to="/schedule">Open full schedule</Link>
             </Button>
           </CardHeader>
           <CardContent className="p-0">
